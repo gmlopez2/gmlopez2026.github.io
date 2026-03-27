@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Welcome — Cross Physical Therapy</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .intro-card {
+      background-color: #ffffff;
+      border: 2px solid #0a1f44;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .intro-card h1 {
+      color: #0a1f44;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .intro-card p {
+      color: #0a1f44;
+      font-size: 18px;
+      line-height: 1.8;
+      margin: 20px 0;
+    }
+
+    .intro-icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+      animation: bounce 2s infinite;
+    }
+
+    .start-btn {
+      background-color: #b30000;
+      color: #ffffff;
+      padding: 15px 40px;
+      margin-top: 30px;
+      border: 2px solid #000000;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+    }
+
+    .start-btn:hover {
+      background-color: #0a1f44;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="intro-container">
+    <div class="intro-card">
+      <div class="intro-icon">👋</div>
+      <h1>Welcome to Cross Physical Therapy</h1>
+      <p>
+        Thank you for choosing Cross Physical Therapy for your healthcare needs. 
+        We're committed to providing you with the highest quality physical therapy services.
+      </p>
+      <p>
+        To get started, please fill out your patient registration form. 
+        This will help us understand your needs and provide personalized care.
+      </p>
+      <button class="start-btn" onclick="window.location.href='index.html';">Click here to start form</button>
+    </div>
+  </div>
+</body>
+</html>

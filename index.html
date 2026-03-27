@@ -76,7 +76,7 @@ Description: Cross Physical Therapy Patient Registration Form where you are fill
         </label>
         <div class="error" id="moveDateErr"></div>
 
-        <label> Social Security # (000-000-0000)
+        <label> Social Security # (XXX-XX-XXXX)
           <input id="ssn" name="ssn" type="password" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="XXX-XX-XXXX">
         </label>
         <div class="error" id="ssnErr"></div>
@@ -587,7 +587,20 @@ document.addEventListener('DOMContentLoaded', () => {
           
           // Add event listener to confirm submission button
           document.getElementById('confirm-submit-btn').addEventListener('click', function() {
-            window.location.href = 'success.html';
+            // Show success message
+            const confirmBtn = this;
+            confirmBtn.textContent = '✓ Submission Received';
+            confirmBtn.style.backgroundColor = '#28a745';
+            confirmBtn.style.cursor = 'not-allowed';
+            confirmBtn.disabled = true;
+            
+            setTimeout(() => {
+              document.getElementById('summary-section').style.display = 'none';
+              document.getElementById('regForm').reset();
+              clearErrors();
+              alert('Thank you! Your registration has been submitted successfully.');
+              window.location.href = 'index.html';
+            }, 2000);
           });
         });
 
