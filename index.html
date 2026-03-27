@@ -256,7 +256,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <h2>📋 Your Submitted Information</h2>
         <div id="summary-content"></div>
         <div class="section">
-          <button type="button" id="close-summary-btn" onclick="document.getElementById('summary-section').style.display='none';">Close Summary</button>
+          <button type="button" id="confirm-submit-btn">Confirm & Complete Submission</button>
+          <button type="button" id="close-summary-btn" onclick="document.getElementById('summary-section').style.display='none';">Edit Information</button>
         </div>
       </section>
 
@@ -321,6 +322,11 @@ document.addEventListener('DOMContentLoaded', () => {
           
           // Scroll to summary
           document.getElementById('summary-section').scrollIntoView({ behavior: 'smooth' });
+          
+          // Add event listener to confirm submission button
+          document.getElementById('confirm-submit-btn').addEventListener('click', function() {
+            window.location.href = 'success.html';
+          });
         });
       </script>
 

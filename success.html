@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submission Successful — Cross Physical Therapy</title>
+  <link rel="stylesheet" href="styles2.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    .success-container {
+      background: white;
+      border-radius: 10px;
+      padding: 50px 40px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+    }
+    
+    .success-icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+      animation: scaleIn 0.6s ease-in-out;
+    }
+    
+    h1 {
+      color: #28a745;
+      font-size: 32px;
+      margin: 20px 0;
+      animation: fadeIn 0.8s ease-in-out 0.2s both;
+    }
+    
+    .success-message {
+      font-size: 18px;
+      color: #555;
+      margin: 20px 0 30px 0;
+      line-height: 1.6;
+      animation: fadeIn 0.8s ease-in-out 0.4s both;
+    }
+    
+    .info-text {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-left: 4px solid #007bff;
+      text-align: left;
+      margin: 25px 0;
+      font-size: 14px;
+      color: #333;
+      animation: fadeIn 0.8s ease-in-out 0.6s both;
+    }
+    
+    .button-group {
+      margin-top: 30px;
+      animation: fadeIn 0.8s ease-in-out 0.8s both;
+    }
+    
+    .button-group a {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 12px 30px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .button-group a:hover {
+      background-color: #218838;
+    }
+    
+    .button-group a.secondary {
+      background-color: #6c757d;
+    }
+    
+    .button-group a.secondary:hover {
+      background-color: #5a6268;
+    }
+    
+    @keyframes scaleIn {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="success-container">
+    <div class="success-icon">✓</div>
+    <h1>Submission Successful!</h1>
+    <p class="success-message">
+      Your submission has been processed, thank you!
+    </p>
+    
+    <div class="info-text">
+      <strong>What happens next?</strong>
+      <p>Our team at Cross Physical Therapy will review your registration information and contact you shortly at the email or phone number provided. We look forward to helping you with your physical therapy needs.</p>
+    </div>
+    
+    <div class="button-group">
+      <a href="index.html">Register Another Patient</a>
+      <a href="index.html" class="secondary">Return to Home</a>
+    </div>
+  </div>
+</body>
+</html>
