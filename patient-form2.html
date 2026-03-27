@@ -1,9 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Cross Physical Therapy - Patient Registration</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    window.onload = function() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('date-today').textContent = now.toLocaleDateString('en-US', options);
+    };
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Cross Physical Therapy - Patient Registration</h1>
+    <p id="date-today"></p>
+    <form id="registration-form" novalidate>
+      <!-- Form fields will go here -->
+    </form>
+  </div>
+
+
+
 <!--
 Program name: patient-form2.html
 Author: Gabriel Lopez
 Date created: 3/24/2026
 Date last edited: 3/27/2026
-Version: 1.3
+Version: 1.5
 Description: Cross Physical Therapy Patient Registration Form where you are filling out information for the company to better suit your needs
 -->
 
@@ -21,12 +46,11 @@ Description: Cross Physical Therapy Patient Registration Form where you are fill
     <header>
       <img src="logo.png" alt="Clinic logo" class="logo">
       <h1>Patient Registration</h1>
-      <p class="small">Today is <span id="today"></span></p>
     </header>
 
     <form id="regForm" novalidate>
       <section class="card">
-        <h2>1 — Name & Dates</h2>
+        <h2>Name & Dates</h2>
         <label>First Name
           <input id="firstName" name="firstName" type="text" required maxlength="30" pattern="^[A-Za-z'\-]{1,30}$">
         </label>
@@ -47,19 +71,19 @@ Description: Cross Physical Therapy Patient Registration Form where you are fill
         </label>
         <div class="error" id="birthdayErr"></div>
 
-        <label>Move‑in / Travel Date
+        <label>Move‑ in / Travel Date
           <input id="moveDate" name="moveDate" type="date">
         </label>
         <div class="error" id="moveDateErr"></div>
 
-        <label>ID / SSN (optional, masked)
-          <input id="idNumber" name="idNumber" type="password" maxlength="30" autocomplete="new-password">
+        <label> Social Security # (000-000-0000)
+          <input id="ssn" name="ssn" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="XXX-XX-XXXX">
         </label>
-        <div class="error" id="idNumberErr"></div>
-      </section>
+        <div class="error" id="ssnErr"></div>
+     </section>
 
       <section class="card">
-        <h2>2 — Contact</h2>
+        <h2>Contact</h2>
         <label>Email
           <input id="email" name="email" type="email" required>
         </label>
@@ -72,7 +96,7 @@ Description: Cross Physical Therapy Patient Registration Form where you are fill
      </section>
 <!-- ADDRESS  -->
       <section class="card">
-        <h2>3 — Address</h2>
+        <h2>Address</h2>
         <label>Address Line 1
           <input id="addr1" name="addr1" type="text" required minlength="2" maxlength="30">
         </label>
@@ -154,29 +178,47 @@ Description: Cross Physical Therapy Patient Registration Form where you are fill
       </section>
 
       <section class="card">
-        <h2>4 — Choices</h2>
+        <h2></h2>
         <div class="group">
-          <p>Medical history (check all that apply)</p>
+          <h2>Medical History (check all that apply)  </h2>
           <label><input type="checkbox" name="history" value="chickenpox"> Chicken Pox</label>
           <label><input type="checkbox" name="history" value="measles"> Measles</label>
           <label><input type="checkbox" name="history" value="covid"> COVID‑19</label>
+          <label><input type="checkbox" name="history" value="flu"> Flu</label>
           <label><input type="checkbox" name="history" value="other"> Other</label>
         </div>
 
-        <div class="group">
-          <p>Housing</p>
-          <label><input type="radio" name="housing" value="own" required> Own</label>
-          <label><input type="radio" name="housing" value="rent"> Rent</label>
-          <label><input type="radio" name="housing" value="unsure"> Unsure</label>
-        </div>
 
         <div class="group">
-          <p>Vaccinated?</p>
+          <h2>Vaccinated?</h2>
           <label><input type="radio" name="vaccinated" value="yes" required> Yes</label>
           <label><input type="radio" name="vaccinated" value="no"> No</label>
           <label><input type="radio" name="vaccinated" value="preferNot"> Prefer not to say</label>
         </div>
 
+                <div class="group">
+          <h2>Housing</h2>
+          <label><input type="radio" name="housing" value="own" required> Own</label>
+          <label><input type="radio" name="housing" value="rent"> Rent</label>
+          <label><input type="radio" name="housing" value="unsure"> Unsure</label>
+        </div>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.getElementById('salary');
+  const display = document.getElementById('salaryDisplay');
+  if (!slider || !display) return;
+
+  const fmt = val => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(Number(val));
+
+  // initialize
+  display.textContent = fmt(slider.value);
+
+  // update while sliding
+  slider.addEventListener('input', () => {
+    display.textContent = fmt(slider.value);
+  });
+});
+</script>
         <div class="group">
           <p>Desired salary / price range</p>
           <input id="salary" name="salary" type="range" min="20000" max="200000" step="1000" value="50000">
