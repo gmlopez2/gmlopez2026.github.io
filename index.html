@@ -28,7 +28,7 @@ Program name: index.html
 Author: Gabriel Lopez
 Date created: 3/24/2026
 Date last edited: 3/27/2026
-Version: 1.7
+Version: 1.8
 Description: Cross Physical Therapy Patient Registration Form where you are filling out information for the company to better suit your needs
 -->
 
@@ -250,6 +250,79 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
       </form>
+
+      <!-- SUMMARY SECTION -->
+      <section class="card" id="summary-section" style="display:none; margin-top: 30px; background-color: #f0f8ff; border-left: 4px solid #007bff;">
+        <h2>📋 Your Submitted Information</h2>
+        <div id="summary-content"></div>
+        <div class="section">
+          <button type="button" id="close-summary-btn" onclick="document.getElementById('summary-section').style.display='none';">Close Summary</button>
+        </div>
+      </section>
+
+      <script>
+        document.getElementById('regForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Collect all form data
+          const formData = new FormData(this);
+          const summary = {};
+          
+          // Get field labels for better readability
+          const labels = {
+            firstName: 'First Name',
+            middleInitial: 'Middle Initial',
+            lastName: 'Last Name',
+            birthday: 'Birthday',
+            moveDate: 'Move-in / Travel Date',
+            ssn: 'Social Security #',
+            email: 'Email',
+            phone: 'Phone',
+            addr1: 'Address Line 1',
+            addr2: 'Address Line 2',
+            city: 'City',
+            state: 'State',
+            zip: 'Zip Code',
+            notes: 'Notes',
+            userId: 'Desired User ID',
+            password: 'Password',
+            vaccinated: 'Vaccinated?',
+            housing: 'Housing'
+          };
+          
+          // Process form entries
+          for (let [key, value] of formData.entries()) {
+            if (key === 'history') {
+              // Handle medical history checkboxes
+              if (!summary['Medical History']) {
+                summary['Medical History'] = [];
+              }
+              summary['Medical History'].push(value);
+            } else if (labels[key]) {
+              summary[labels[key]] = value;
+            }
+          }
+          
+          // Format and display summary
+          let summaryHTML = '<dl style="display: grid; grid-template-columns: 200px 1fr; gap: 15px;">';
+          
+          for (let [label, value] of Object.entries(summary)) {
+            if (Array.isArray(value)) {
+              summaryHTML += `<dt><strong>${label}:</strong></dt><dd>${value.join(', ')}</dd>`;
+            } else {
+              summaryHTML += `<dt><strong>${label}:</strong></dt><dd>${value || '(not provided)'}</dd>`;
+            }
+          }
+          
+          summaryHTML += '</dl>';
+          
+          document.getElementById('summary-content').innerHTML = summaryHTML;
+          document.getElementById('summary-section').style.display = 'block';
+          
+          // Scroll to summary
+          document.getElementById('summary-section').scrollIntoView({ behavior: 'smooth' });
+        });
+      </script>
 
       </body>
 
