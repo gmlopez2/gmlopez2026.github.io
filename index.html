@@ -28,7 +28,7 @@ Program name: index.html
 Author: Gabriel Lopez
 Date created: 3/24/2026
 Date last edited: 3/27/2026
-Version: 1.8
+Version: 1.10
 Description: Cross Physical Therapy Patient Registration Form where you are filling out information for the company to better suit your needs
 -->
 
@@ -85,12 +85,12 @@ Description: Cross Physical Therapy Patient Registration Form where you are fill
       <section class="card">
         <h2>Contact</h2>
         <label>Email
-          <input id="email" name="email" type="email" required placeholder="name@domain.tld">
+          <input id="email" name="email" type="email" required placeholder="Example: UHFinal4@cougarnet.uh.edu">
         </label>
         <div class="error" id="emailErr"></div>
 
         <label>Phone (000-000-0000)
-          <input id="phone" name="phone" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="555-555-1212">
+          <input id="phone" name="phone" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="123-456-7890">
         </label>
         <div class="error" id="phoneErr"></div>
      </section>
@@ -114,7 +114,7 @@ Description: Cross Physical Therapy Patient Registration Form where you are fill
 <!-- STATE -->
         <label>State
           <select id="state" name="state" required>
-            <option value="">-- select state --</option>
+            <option value="">-- Select State--</option>
             <option value="AL">AL</option>
             <option value="AK">AK</option>
             <option value="AZ">AZ</option>
@@ -582,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
           document.getElementById('summary-content').innerHTML = summaryHTML;
           document.getElementById('summary-section').style.display = 'block';
           
-          // Scroll to summary
+          // Summary scroll
           document.getElementById('summary-section').scrollIntoView({ behavior: 'smooth' });
           
           // Add event listener to confirm submission button
