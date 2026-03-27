@@ -71,7 +71,7 @@ Description: Cross Physical Therapy Patient Registration Form where you are fill
         </label>
         <div class="error" id="birthdayErr"></div>
 
-        <label>Move‑ in / Travel Date
+        <label>Move in Date
           <input id="moveDate" name="moveDate" type="date">
         </label>
         <div class="error" id="moveDateErr"></div>
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
         <div class="group">
-          <p>Desired salary / price range</p>
+          <p>Desired salary / Price range</p>
           <input id="salary" name="salary" type="range" min="20000" max="200000" step="1000" value="50000">
           <span id="salaryDisplay">$50,000</span>
         </div>
@@ -605,7 +605,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Initialize on page load
-        window.addEventListener('DOMContentLoaded', initializeDateConstraints);
+        window.addEventListener('DOMContentLoaded', function() {
+          initializeDateConstraints();
+          
+          // Real-time password validation
+          const passwordField = document.getElementById('password');
+          const confirmPasswordField = document.getElementById('confirmPassword');
+          
+          passwordField.addEventListener('input', function() {
+            const error = validatePassword(this.value);
+            if (error) {
+              displayError('password', error);
+            } else {
+              document.getElementById('passwordErr').textContent = '';
+            }
+            
+            // Also validate confirm password on the fly if it has content
+            if (confirmPasswordField.value) {
+              const confirmError = validateConfirmPassword(this.value, confirmPasswordField.value);
+              if (confirmError) {
+                displayError('confirmPassword', confirmError);
+              } else {
+                document.getElementById('confirmPasswordErr').textContent = '';
+              }
+            }
+          });
+          
+          confirmPasswordField.addEventListener('input', function() {
+            const password = passwordField.value;
+            if (password) {
+              const error = validateConfirmPassword(password, this.value);
+              if (error) {
+                displayError('confirmPassword', error);
+              } else {
+                document.getElementById('confirmPasswordErr').textContent = '';
+              }
+            }
+          });
+        });
       </script>
 
       </body>
