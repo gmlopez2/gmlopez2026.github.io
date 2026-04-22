@@ -39,6 +39,10 @@ h1 {
   margin-right: 80px;
 }
 
+#header h1 {
+  color: #ffffff;   /* Make title white. Referenced w3spaces to make a specific title a color.*/
+}
+
 /* Table Layout */
 table {
   margin: 20px auto;
